@@ -1,0 +1,909 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff) format('woff');
+}
+
+body {
+    background-color: #eeeeee;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+newSub {
+    display:block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.inputText{
+    border: 1px solid lightgray;
+    background-color: #e7e7e7;
+    padding-left: 5px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+
+.content{
+    display: inline-block;
+    max-width: 1024px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 100px;
+    position: relative;
+    text-align: left;
+}
+
+
+.contentBlockTitleSubmissions{
+    font-size: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+	padding-bottom: 0px;
+}
+
+
+
+.topMenuTitle{
+    display: inline-block;
+    color: #525252;
+    padding-top: 8px;
+    padding-left: 0px;
+    float: left;
+
+}
+
+.topMenuInner{
+    width: 100%;
+    max-width: 1024px;
+    display: inline-block;
+    height: 34px;
+}
+
+.topMenuSecond{
+    background-color: white;
+    min-height: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.topMenu{
+    background-color: white;
+    min-height: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.topMenuItem{
+    display: inline-block;
+    color: #525252;
+    padding: 10px;
+}
+
+.topMenuItemSelected{
+    padding-bottom: 8px;
+    border-bottom: 2px solid #6d9fc0;
+}
+
+.topMenuItem:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.videoThumb{
+    background-position: center;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+}
+
+.contentInput{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.contentInputRed{
+    background-color: #e7aeb8;
+    border: 1px solid #ff97a2;
+}
+
+.inputs{
+    margin-right: 20px;
+}
+
+.contentBlock{
+    background-color: white;
+    min-height: 15px;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.contentBlockBoardTitle{
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.bodyBoard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.bodyBoard .Usertemplate{
+    padding: 5px;
+    padding-bottom: 2px;
+
+}
+
+.boardCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    flex-wrap: nowrap;
+    text-align: left;
+    flex: 1;
+}
+
+.boardTime{
+    font-size: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.boardAV{
+    background-color: #85bd83;
+    border: 1px solid #5ea969;
+    color: white;
+    display: inline-block;
+    height: 25px;
+    width: 10px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}
+
+.boardNA{
+    background-color: #bd6960;
+    border: 1px solid #a9483e;
+}
+
+.contentBlockBoard{
+    flex-grow: 1;
+    overflow: hidden;
+    margin: 0px;
+    text-overflow:ellipsis;
+}
+
+.boardUser{
+    display: inline-block;
+}
+
+
+.contentBlockSmall{
+    display: inline-block;
+
+}
+
+.contentBlockTitle{
+    font-size: 20px;
+    margin-bottom: 3px;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.chartLabel{
+    display: inline-block;
+    color: #858585;
+    width: 100%;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.gauge-icon-only{
+    display: inline-block;
+    color: #858585;
+    /*background-color: #eeeeee;*/
+    width: 5%;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 2px;
+    padding-top: 12px;
+}
+
+.gauge{
+    display: inline-block;
+    color: #858585;
+    background-color: #eeeeee;
+    width: 100%;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 2px;
+    padding-top: 2px;
+}
+
+.deleteButton{
+    display: inline-block;
+    color: #fff;
+    background-color: #d65457;
+    width: 25px;
+    margin-right: 2px;
+    text-align: center;
+    border-radius: 2px;
+    float: right;
+    cursor: pointer;
+}
+
+.hideButton{
+    display: inline-block;
+    color: #4c4c4b;
+    background-color: #d6d2d4;
+    width: 25px;
+    margin-right: 2px;
+    text-align: center;
+    border-radius: 2px;
+    padding-top: 0px;
+    float: right;
+    cursor: pointer;
+}
+
+.hideButtonDisabled{
+    background-color: transparent;
+}
+
+.gauge:last-child {
+    margin-right: 0px;
+}
+
+.gaugeSmall{
+    width: auto;
+    margin-right: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+
+.gaugeBlock{
+    display: flex;
+    justify-content: center;
+}
+.contentBlockDescription{
+    color: #212121;
+}
+
+.contentBlockDescription img{
+    max-width: 100%;
+}
+
+.description{
+    margin-bottom: 5px;
+}
+
+.contentBlockDescriptionFile
+{
+   width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fileCircle
+{
+    background-color: #5c7784;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 55px;
+    margin-top: -10px;
+}
+
+.fileCircle i{
+    color: white;
+    font-size: 45px;
+    position: relative;
+    top: 17px;
+}
+
+.contentBlockImage {
+    background: url("/public/image/rene.jpg") no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+.contentBlockFiles{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #e1e1e1;
+}
+
+.contentBlockFile{
+    width: auto;
+    height: inherit;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #333333;
+}
+
+.contentBlockFile i{
+    font-size: 20px;
+    position: relative;
+    top: 4px;
+}
+
+.banner{
+    background: #263138 no-repeat center;
+    height: 200px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.bannerImage{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+    top: 40px;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #DDD;
+    border: 5px solid white;
+
+}
+
+.bannerTextItems{
+    height: auto;
+    width: auto;
+    float: left;
+    text-align: left;
+    top: 70px;
+    position: relative;
+}
+
+.bannerText{
+    color: white;
+    font-size: 32px;
+}
+
+.bannerTextSecond{
+    color: white;
+}
+
+
+.bannerContent{
+    max-width: 1024px;
+    width: 100%;
+    height: 200px;
+    display: inline-block;
+}
+
+.footer{
+    background-color: #37474F;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    line-height: 50px;
+    color: white;
+    height: 50px;
+}
+
+.navBar{
+    background-color: #008386;
+    box-shadow: 0 2px 0 #007275;;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navBarContent{
+    max-width: 1044px;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+}
+
+.navBarItem{
+    display: inline-block;
+    float: left;
+    height: 50px;
+    line-height: 52px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color .1s ease-out;
+    color: white;
+}
+
+.navBarTitle{
+    display: inline-block;
+    float: left;
+    height: 50px;
+    line-height: 52px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.navBarItemRight{
+    float: right;
+    margin-right: 0;
+}
+
+.navBarItem:hover{
+    background-color: #007275;
+}
+
+.navBarItemRight:hover > .dropDown{
+    display: block;
+}
+
+.navBarItem i{
+    position: relative;
+    font-size: 20px;
+}
+
+.navBarItemRight i{
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+}
+
+.navBarItemRight a{
+    color: white;
+}
+.UserImage{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 2px;
+    vertical-align: middle;
+    background-color: #005BA5;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 3px;
+    display: inline-block;
+    font-size: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.UserImageLarge{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-right: 2px;
+    vertical-align: middle;
+    background-color: #005BA5;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+    margin-bottom: 3px;
+    display: inline-block;
+    font-size: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position: center;
+    border: 5px solid white;
+}
+
+.UserImageHover i{
+    cursor: pointer;
+}
+
+.usercover{
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    background-color: #bcc9d9;
+}
+
+.userName{
+    display: inline-block;
+    font-weight: bold;
+}
+/* Teacher Page Specific */
+#teacherTable table {
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+#teacherTable td {
+    min-width: 150px;
+    max-width: 450px;
+}
+
+#teacherTable img {
+    padding: 5px;
+}
+
+#teacherTable a {
+    color: black;
+    text-decoration: underline;
+}
+
+#teacherTable tr:nth-child(even), #teacherTable tr:nth-child(even) a {
+    background-color: #37474F;
+    color: white;
+}
+
+#teacherTable td, #teacherTable th {
+    padding: 5px 15px;
+}
+
+#typePicker {
+    float: right;
+}
+
+.dropDown{
+    position: absolute;
+    background-color: #fff;
+    width: 209px;
+    height: auto;
+    margin-left: -10px;
+    border: 1px solid #c7c7c7;
+    display: none;
+}
+.dropDownItem{
+    width: 199px;
+    height: 50px;
+    color: #1e1e1e;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.dropDownItem i{
+    top: 2px;
+}
+
+.dropDownItem:hover{
+    background-color: #f0f0f0;
+}
+
+.alert{
+    border: 1px solid #638faf;
+}
+
+.alert .title{
+    margin-bottom: 5px;
+}
+
+@media (max-width: 1024px) {
+    /* CSS that should be displayed if width is equal to or less than 1024PX goes here */
+    .content {
+        padding: 0;
+        margin-top: 0;
+
+    }
+
+    .contentBlockSmall{
+        display: block;
+    }
+
+    .logo {
+        width: 150px;
+        position: relative;
+        top: 20px;
+        height: 150px;
+        float: left;
+
+    }
+
+    @media (max-width: 500px) {
+        .navBarItem {
+            font-size: 0;
+        }
+
+        .dropDown{
+            font-size: 15px;
+            margin-left: -140px;
+        }
+
+        .navBarItemRight i{
+            top: 10px;
+        }
+
+        .dropDown i{
+            top: 3px;
+        }
+
+    }
+
+    .topMenuTitle{
+        margin-left: 8px;
+
+    }
+
+    .AVButton{
+        margin-top: 5px;
+    }
+
+}
+
+
+.drop-trigger{
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+    left: -10px;
+    width: 10px;
+    height: 200px;
+}
+
+.portfolioEditMenu{
+    width: 100%;
+    height: 40px;
+}
+
+.button-save{
+    float: right;
+    margin-right: 5px;
+}
+
+.button-add{
+    float: right;
+    margin-right: 5px;
+}
+
+.button {
+    color: #ffffff;
+    min-width: 75px;
+    min-height: 30px;
+    border: none;
+    border-radius: 2px;
+    background-color: #005BA5;
+    -webkit-transition: background-color 70ms linear;
+    -moz-transition: background-color 70ms linear;
+    -o-transition: background-color 70ms linear;
+    -ms-transition: background-color 70ms linear;
+    transition: background-color 70ms linear;
+    position: relative;
+}
+
+.button i {
+    font-size: 15px;
+    position: relative;
+    top: 1px;
+}
+
+.button:disabled{
+    background-color: #004581;
+}
+.button:hover {
+    background-color: #004581;
+    cursor: pointer;
+    -webkit-transition: background-color 70ms linear;
+    -moz-transition: background-color 70ms linear;
+    -o-transition: background-color 70ms linear;
+    -ms-transition: background-color 70ms linear;
+    transition: background-color 70ms linear;
+}
+
+.button-small {
+    color: #2d2d2d;
+    min-width: 10px;
+    min-height: 30px;
+    border: none;
+    border-radius: 2px;
+    background-color: #d6d4d9;
+    -webkit-transition: background-color 70ms linear;
+    -moz-transition: background-color 70ms linear;
+    -o-transition: background-color 70ms linear;
+    -ms-transition: background-color 70ms linear;
+    transition: background-color 70ms linear;
+    position: relative;
+}
+
+.button-small i {
+    font-size: 15px;
+    position: relative;
+    top: 1px;
+}
+
+.button-small:hover {
+    background-color: #babbbd;
+    cursor: pointer;
+    -webkit-transition: background-color 70ms linear;
+    -moz-transition: background-color 70ms linear;
+    -o-transition: background-color 70ms linear;
+    -ms-transition: background-color 70ms linear;
+    transition: background-color 70ms linear;
+}
+
+.button-trash{
+    background-color: #b32029;
+    border-bottom: 2px solid #801c20;
+    display: none;
+}
+
+.button-trash:hover{
+    background-color: #88181f;
+}
+
+.button-disabled{
+    color: #eeeeee;
+    border-bottom: 0px;
+    background-color: #527897;
+}
+
+.button-disabled:hover{
+    background-color: #527897;
+}
+
+.buttonRight{
+    float: right;
+    margin-right: 5px;
+    background-color: #4c4c4b;
+}
+
+.buttonRight:hover{
+    background-color: #363635;
+}
+
+.buttonRightSmall:hover{
+    background-color: #414140;
+}
+
+.buttonRightSmall{
+    float: right;
+    margin-right: -5px;
+    background-color: #60605f;
+    min-width: 10px;
+}
+
+.editImage{
+    display: inline-block;
+}
+
+.editImages{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.contentBlockCheck{
+    width: auto;
+    float: right;
+    height: inherit;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #333333;
+}
+
+.contentBlockCheck i{
+    font-size: 20px;
+    position: relative;
+    top: 4px;
+}
+
+.contentBlockCheck:hover .toolTip {
+    visibility: visible;
+}
+
+.submissionform input{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.submissionform textarea{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+input[type=file]{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+select[name=type]{
+	margin-bottom: 5px;
+}
+
+.toolTip{
+    position: absolute;
+    z-index: 10;
+    background-color: grey;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    padding: 10px;
+    visibility: hidden;
+}
+
+.submissionButton{
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+}
+
+.submissionButton i{
+    color: #292929;
+}
+
+.contentButtonRight{
+    float: right;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+}
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 5px;
+}
+
+.inputNumber{
+    border: 1px solid lightgray;
+    background-color: #e7e7e7;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 30px;
+}
+
+.cursorhand{
+    cursor: pointer;
+}
