@@ -24,7 +24,7 @@ public class Client {
                 this.clientSocket.close();
                 System.out.println("Client timed out after not providing ID");
             }catch (IOException x){
-
+                System.out.println(x.toString());
             }
         }
     }
@@ -37,8 +37,10 @@ public class Client {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String respond = br.readLine();
+
             if(!respond.equals("")){
                 ID = null;
+                clientSocket.close();
                 System.out.println("Client timed out");
             }
 
@@ -65,6 +67,7 @@ public class Client {
             String respond = br.readLine();
             if(!respond.equals("")){
                 ID = null;
+                clientSocket.close();
                 System.out.println("Client timed out");
             }
 
