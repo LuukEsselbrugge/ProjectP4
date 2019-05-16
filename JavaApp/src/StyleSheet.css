@@ -24,3 +24,8 @@
     -fx-focus-color: transparent;
     -fx-focus-traversable: false;
 }
+
+#errorLabel {
+    -fx-text-fill: #FF0000;
+    visibility: false;
+}

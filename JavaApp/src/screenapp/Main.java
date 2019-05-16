@@ -1,25 +1,13 @@
 package screenapp;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("homescreen.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("StyleSheet.css");
-
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setMaximized(true);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        root.requestFocus();
+    public void start(Stage primaryStage) {
+        StageBuilder.setInitialStage(primaryStage);
 
         //testServer();
     }
@@ -39,10 +27,9 @@ public class Main extends Application {
             }
             try {
                 Thread.sleep(5000);
-            }catch (Exception e){
+            } catch (Exception e){
 
             }
         }
-
     }
 }
