@@ -1,8 +1,8 @@
 <?php
 
-define("DBU","loves21_sboard");
-define("DBP","RQ6J2hzs40");
-define("DBN","loves21_sboard");
+define("DBU","root");
+define("DBP","");
+define("DBN","librarysearch");
 
 
 class Database

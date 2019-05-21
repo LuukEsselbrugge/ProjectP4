@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sboard - Instellingen</title>
+    <title>LibrarySearch - Instellingen</title>
     <?php include_once('head.php') ?>
 
 </head>
@@ -32,18 +32,6 @@
 
         <div class="description">Nieuw wachtwoord</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
         <div class="description">Nieuw wachtwoord herhalen</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
-
-            <div style="<?php if($_SESSION["UserData"]["Admin"] == "0"): ?>display: none;<?php endif;?>" class="description">Aanwezigheid<br>
-            <button type="button" onclick="buttonCheck(this)" data-mode="AU" <?php if ($user["AMode"]=="AU"): ?>disabled<?php endif; ?> class="button AVButton"><i class="mdi <?php if ($user["AMode"]=="AU"): ?>mdi-check-circle<?php else: ?>mdi-circle<?php endif; ?>"></i> Automatisch</button>
-            <button type="button" onclick="buttonCheck(this)" data-mode="AV" <?php if ($user["AMode"]=="AV"): ?>disabled<?php endif; ?> class="button AVButton"><i class="mdi <?php if ($user["AMode"]=="AV"): ?>mdi-check-circle<?php else: ?>mdi-circle<?php endif; ?>"></i> Beschikbaar</button>
-            <button type="button" onclick="buttonCheck(this)" data-mode="NA" <?php if ($user["AMode"]=="NA"): ?>disabled<?php endif; ?> class="button AVButton"><i class="mdi <?php if ($user["AMode"]=="NA"): ?>mdi-check-circle<?php else: ?>mdi-circle<?php endif; ?>"></i> Niet Beschikbaar</button>
-            </div>
-
-            <div style="<?php if($_SESSION["UserData"]["Admin"] == "0"): ?>display: none;<?php endif;?>" class="description">Opties<br>
-                <i onclick="toggleCheck(this)" data-enabled="<?=$user["Admin"] ?>" class="togglePermission mdi <?php if ($user["Admin"]=="1"): ?>mdi-check-circle<?php else: ?>mdi-circle-outline<?php endif; ?>"></i> Administrator
-                <br><i onclick="toggleCheck(this)" data-enabled="<?=$user["Visible"] ?>" class="togglePermission mdi <?php if ($user["Visible"]=="1"): ?>mdi-check-circle<?php else: ?>mdi-circle-outline<?php endif; ?>"></i> Aanwezigheid tonen op scherm
-                <br><i onclick="toggleCheck(this)" data-enabled="<?=$user["Publish"] ?>" class="togglePermission mdi <?php if ($user["Publish"]=="1"): ?>mdi-check-circle<?php else: ?>mdi-circle-outline<?php endif; ?>"></i> Gebruiker mag items publiceren
-            </div>
         </form>
         <button type="button" data-userid="<?=$user["UserID"]?>" disabled onclick="userSave(this)" class="button buttonSave" ><i class="mdi mdi-check"></i> Opgeslagen</button>
 

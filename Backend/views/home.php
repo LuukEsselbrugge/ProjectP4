@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sboard</title>
+    <title>LibrarySearch</title>
     <?php include_once('head.php') ?>
 
 </head>
@@ -11,17 +11,27 @@
 
 <div class="topMenuSecond">
     <div class="topMenuInner">
-        <div class="topMenuTitle">Overzicht / <b>beschikbaarheid</b></div>
+        <div class="topMenuTitle">Overzicht / <b>Kasten</b></div>
     </div>
 </div>
 
 <div class="content">
+    <?php $i = 1;?>
     <div class="contentBlock">
-        <div class="contentBlockTitle">Huidige beschikbaarheid</div>
-        <div class="description">Aanpassingen worden direct zichtbaar</div>
-
+        <div class="contentBlockTitle">Kast <?php echo $i; $i++;?></div>
+        <div class="description">Kasten</div>
+        <div class="clossets">
+            
+        </div>
     </div>
-
+    <div class="contentBlock">
+        <div class="contentBlockTitle">Kast <?php echo $i; $i++;?></div>
+        <div class="description">Kasten</div>
+        <div class="clossets">
+            
+        </div>
+    </div>
+</div>
    
 
 
