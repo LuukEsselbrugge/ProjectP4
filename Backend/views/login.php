@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sboard - Login</title>
+    <title>LibrarySearch - Login</title>
     <?php include_once('head.php') ?>
 
 </head>
@@ -23,7 +23,6 @@
             </form>
         </div>
     </div>
-
 </div>
 
 
