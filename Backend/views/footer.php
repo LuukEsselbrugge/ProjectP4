@@ -1,1 +1,1 @@
-<div class="footer">© Portfolio - 2017</div>
+<div class="footer">© NHL Stenden Library - 2019</div>

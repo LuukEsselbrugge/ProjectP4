@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
 
-<GridPane id="mainScreen" alignment="center" hgap="10" prefHeight="286.0" prefWidth="513.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screenapp.Controller">
-    <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints />
-      <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-      <RowConstraints />
-    </rowConstraints>
-   <children>
-      <Label text="List of books" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <font>
-            <Font name="Calibri" size="48.0" />
-         </font>
-      </Label>
-   </children>
-</GridPane>
+<BorderPane id="bookList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screenapp.ListController">
+   <top>
+      <Button id="returnHome" fx:id="returnHome" mnemonicParsing="false" onAction="#btnClick" text="Return" />
+   </top>
+   <center>
+         <ListView id="booksFoundView" fx:id="booksFoundView" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+         <Label id="resultLbl" fx:id="resultLbl" text="X amount of results have been found" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
