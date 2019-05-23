@@ -19,7 +19,7 @@ public class SearchController {
             errorLabel.setVisible(true);
             errorLabel.setText("Please fill in the Title, ISBN or Author");
         } else {
-            StageBuilder.newScene("resultscreen.fxml");
+            StageBuilder.newScene("booklist.fxml");
         }
     }
 }
