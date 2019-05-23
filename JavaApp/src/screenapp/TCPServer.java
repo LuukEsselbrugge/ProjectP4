@@ -1,7 +1,11 @@
 package screenapp;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 public class TCPServer implements Runnable {
@@ -18,7 +22,7 @@ public class TCPServer implements Runnable {
     }
 
     public ArrayList<Client> getClients(){
-        clients.removeIf(c -> c.getID() == null);
+        clients.removeIf(c -> c.isConnected() == false);
         return clients;
     }
 
@@ -37,12 +41,38 @@ public class TCPServer implements Runnable {
         }
         openServerSocket();
         while (!isStopped()) {
-
+            Client c = new Client(null);
             try {
-                clients.add(new Client(this.serverSocket.accept()));
+
+                Socket s = this.serverSocket.accept();
+                s.setSoTimeout(15000);
+                c = new Client(s);
+                clients.add(c);
                 System.out.println("Client connected");
 
-            } catch (IOException e) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                String ID = br.readLine();
+                c.setID(ID);
+
+
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println("Client send " + line);
+                    c.heartBeat();
+                    try {
+                        Thread.sleep(10000);
+                    }catch (Exception e){
+
+                    }
+                }
+
+            }
+            catch (SocketTimeoutException e){
+                System.out.println("Client timed out lmao");
+                c.closeSocket();
+
+            }
+            catch (IOException e) {
                 if (isStopped()) {
                     System.out.println("Server Stopped.");
                     return;

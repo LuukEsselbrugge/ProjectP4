@@ -23,10 +23,11 @@ public class Main extends Application {
         while(true) {
             System.out.println("Connected clients:" + t.getClients().size());
             for (Client c : t.getClients()) {
-                c.addResult(0, 0, 255, 255, 255);
+                c.addResult(1, 1, 255, 255, 255);
+               // c.addResult(2, 2, 0, 0, 255);
             }
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (Exception e){
 
             }

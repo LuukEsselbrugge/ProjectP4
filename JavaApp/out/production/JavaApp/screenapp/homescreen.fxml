@@ -36,7 +36,7 @@
          <GridPane.margin>
             <Insets top="40.0" />
          </GridPane.margin></Button>
-      <Label id="errorLabel" fx:id="errorLabel" text="Please fill in the Title, ISBN or Author" textFill="RED" GridPane.columnIndex="1">
+      <Label id="errorLabel" fx:id="errorLabel" textFill="RED" GridPane.columnIndex="1">
          <font>
             <Font name="Calibri Bold" size="32.0" />
          </font></Label>

@@ -12,39 +12,51 @@ public class Client {
     private ArrayList <String> results = new ArrayList<>();
 
     private String ID = null;
+    private boolean connected = true;
 
     public Client(Socket s){
         this.clientSocket = s;
+    }
+
+    public void heartBeat(){
         try {
-            this.clientSocket.setSoTimeout(10000);
-            BufferedReader br = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
-            ID = br.readLine();
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            out.println("a");
         }catch (Exception e){
-            try {
-                this.clientSocket.close();
-                System.out.println("Client timed out after not providing ID");
-            }catch (IOException x){
-                System.out.println(x.toString());
-            }
+
         }
     }
 
+    public boolean isConnected(){
+        try {
+            return this.connected;
+        }catch (Exception e){
+
+        }
+        return false;
+    }
+    public void closeSocket(){
+        try {
+            this.clientSocket.close();
+            this.connected = false;
+        }catch (Exception e){
+
+        }
+    }
+    public void setID(String id){
+        this.ID = id;
+        System.out.println("ID is" + ID);
+    }
     public int addResult(int row, int col, int R, int G, int B){
         try {
+
             results.add(String.format("%02d", row) + String.format("%02d", col) + String.format("%02d", R) + String.format("%02d", G) + String.format("%02d", B));
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
             out.println("00" + String.format("%02d", results.size() - 1) + results.get(results.size() - 1));
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String respond = br.readLine();
-
-            if(!respond.equals("")){
-                ID = null;
-                clientSocket.close();
-                System.out.println("Client timed out");
-            }
-
         }catch (Exception e){
+            System.out.println(e.toString());
             ID = null;
             System.out.println("Client timed out");
             try {
