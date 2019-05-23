@@ -25,20 +25,18 @@
     <div class="contentBlock">
 
         <form id="form">
-        <div class="inputs">
-        <div class="description">Naam</div> <input required onkeyup="userChanged(this)" class="contentInput" type="text" value="<?=$user["Firstname"]?>">
-        <div class="description">Achternaam</div> <input onkeyup="userChanged(this)" class="contentInput" type="text" value="<?=$user["Lastname"]?>">
-        <div class="description">Email</div> <input required onkeyup="userChanged(this)" class="contentInput" type="email" value="<?=$user["Email"]?>">
+            <div class="inputs">
+                <div class="description">Naam</div> <input required onkeyup="userChanged(this)" class="contentInput" type="text" value="<?=$user["Firstname"]?>">
+                <div class="description">Achternaam</div> <input onkeyup="userChanged(this)" class="contentInput" type="text" value="<?=$user["Lastname"]?>">
+                <div class="description">Email</div> <input required onkeyup="userChanged(this)" class="contentInput" type="email" value="<?=$user["Email"]?>">
 
-        <div class="description">Nieuw wachtwoord</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
-        <div class="description">Nieuw wachtwoord herhalen</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
+                <div class="description">Nieuw wachtwoord</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
+                <div class="description">Nieuw wachtwoord herhalen</div> <input onkeyup="userChanged(this)" class="contentInput" type="password" value="">
         </form>
-        <button type="button" data-userid="<?=$user["UserID"]?>" disabled onclick="userSave(this)" class="button buttonSave" ><i class="mdi mdi-check"></i> Opgeslagen</button>
-
+                <button type="button" data-userid="<?=$user["UserID"]?>" disabled onclick="userSave(this)" class="button buttonSave" ><i class="mdi mdi-check"></i> Opgeslagen</button>
+            </div>
     </div>
-
 </div>
-
 
 </body>
 </html>
