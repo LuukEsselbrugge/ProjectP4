@@ -1,9 +1,12 @@
 package screenapp;
 
 import javafx.application.Application;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+    ListView<String> listView;
 
     @Override
     public void start(Stage primaryStage) {

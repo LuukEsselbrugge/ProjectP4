@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Controller {
+public class SearchController {
     @FXML
     Button searchButton;
     @FXML
@@ -19,7 +19,7 @@ public class Controller {
             errorLabel.setVisible(true);
             errorLabel.setText("Please fill in the Title, ISBN or Author");
         } else {
-            StageBuilder.newScene("booklist.fxml");
+            StageBuilder.newScene("resultscreen.fxml");
         }
     }
 }
