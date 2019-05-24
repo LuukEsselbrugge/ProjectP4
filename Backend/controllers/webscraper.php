@@ -5,7 +5,7 @@
 		$rss = "http://lbs-nhl.oclc.org:8080//psi_rss/rss_feeds.php?DB=1.5&SEARCH=00yS!i1016!t". $search ."!aY!cN.oY.vD.wD";
         $html = file_get_html($rss);		
 
-		$itemArray = $html->find('item');
+		$itemArray = $html->find('item');	
 		$titleArray = $html->find('item title');
 		$descriptionArray = $html->find('item description');
 		$max = sizeof($titleArray);
@@ -15,17 +15,22 @@
 			$book = substr($itemArray[$i]->plaintext, 0, 56);
 			$htmlBook = file_get_html($book);
 
-			$bookArray = $htmlBook->find('tr td[.rec_title] div span');
+			$value = "";
+			$bookArray = $htmlBook->find('div.lrmargin div table tr td.rec_title div span');
 			$sizeBookArray = sizeof($bookArray);
-			$Emmmen = 'Emmen ';
+			$regex = "/Emmen /";
 			foreach($bookArray as $element){
-				if(strpos($element->plaintext, $Emmmen) == true){
-					echo $element->plaintext . "<br>";
+				if(preg_match($regex ,$element->innertext)){
+					$value = explode(" ", $element->innertext);
+					echo $value[1] . " " . $value[2] . "<br>";
+					break;
 				}
 			}
 
-			// echo $titleArray[$i]->plaintext . "<br>";
-			// echo $descriptionArray[$i]->plaintext . "<br><br>";
+			$reserverdArray = $htmlBook->find('div  ');
+
+			echo $titleArray[$i]->plaintext . "<br>";
+			echo $descriptionArray[$i]->plaintext . "<br><br>";
 		}
 	}
 ?>
