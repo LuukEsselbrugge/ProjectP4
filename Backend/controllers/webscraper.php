@@ -2,7 +2,7 @@
 	if(!empty($_POST['search'])){
 		$search = $_POST['search'];
 
-		$rss = "http://lbs-nhl.oclc.org:8080//psi_rss/rss_feeds.php?DB=1.5&SEARCH=00yS!i1016!t". $search ."!aY!cN.oY.vD.wD";
+		$rss = 'http://lbs-nhl.oclc.org:8080//psi_rss/rss_feeds.php?DB=1.5&SEARCH=00yS!i1016!t'. $search .'!aY!cN.oY.vD.wD';
         $html = file_get_html($rss);		
 
 		$itemArray = $html->find('item');	
