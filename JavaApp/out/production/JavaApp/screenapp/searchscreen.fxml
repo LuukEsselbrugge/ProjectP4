@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane id="mainScreen" alignment="center" hgap="10" prefHeight="286.0" prefWidth="513.0" vgap="10"
+<GridPane id="searchContainer" alignment="center" hgap="10" prefHeight="286.0" prefWidth="513.0" vgap="10"
           xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
           fx:controller="screenapp.SearchController">
    <columnConstraints>
@@ -22,13 +22,13 @@
       <RowConstraints/>
       <RowConstraints/>
    </rowConstraints>
-   <TextField id="searchBook" fx:id="searchBook" promptText="Title, ISBN or Author" GridPane.columnIndex="1"
+   <TextField id="searchBookTxt" fx:id="searchBookTxt" promptText="Title, ISBN or Author" GridPane.columnIndex="1"
               GridPane.rowIndex="2">
       <font>
          <Font name="Calibri Bold" size="32.0"/>
       </font>
    </TextField>
-   <Button id="searchButton" fx:id="searchButton" mnemonicParsing="false" onAction="#btnClick"
+   <Button id="searchBookBtn" fx:id="searchBookBtn" mnemonicParsing="false" onAction="#btnClick"
            stylesheets="@../StyleSheet.css" text="Find Book" textFill="WHITE" GridPane.columnIndex="1"
            GridPane.halignment="CENTER" GridPane.rowIndex="3">
       <font>
@@ -41,5 +41,5 @@
          <Insets top="40.0"/>
       </GridPane.margin>
    </Button>
-   <Label id="errorLabel" fx:id="errorLabel" GridPane.columnIndex="1"/>
+   <Label id="errorLbl" fx:id="errorLbl" GridPane.columnIndex="1"/>
 </GridPane>

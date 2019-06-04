@@ -15,7 +15,7 @@ public class StageBuilder {
 
         try {
             if(currentScene == null) {
-                currentScene = new Scene(FXMLLoader.load(StageBuilder.class.getResource("homescreen.fxml")));
+                currentScene = new Scene(FXMLLoader.load(StageBuilder.class.getResource("searchscreen.fxml")));
             }
 
             currentScene.getStylesheets().add("StyleSheet.css");

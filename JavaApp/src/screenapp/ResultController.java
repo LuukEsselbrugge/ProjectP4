@@ -7,17 +7,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListController implements Initializable {
+public class ResultController implements Initializable {
     @FXML
-    ListView<Label> booksFoundView;
+    ListView<Label> bookResultList;
     @FXML
-    Button returnHome;
+    Button backBtn;
     @FXML
-    Label resultLbl;
+    Label resultSumLbl;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,13 +28,21 @@ public class ListController implements Initializable {
             items.add(new Label("Test " + i));
         }
 
-        booksFoundView.setItems(items);
+        bookResultList.setItems(items);
 
-        resultLbl.setText(items.size() + " result(s) have been found");
+        resultSumLbl.setText(items.size() + " result(s) have been found");
+
+        bookResultList.setOnMouseClicked(mouseEvent -> {
+            if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                if(mouseEvent.getClickCount() == 2) {
+                    StageBuilder.newScene("routescreen.fxml");
+                }
+            }
+        });
     }
 
     @FXML
     public void btnClick() {
-        StageBuilder.newScene("homescreen.fxml");
+        StageBuilder.newScene("searchscreen.fxml");
     }
 }

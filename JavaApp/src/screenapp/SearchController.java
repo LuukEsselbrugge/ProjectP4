@@ -7,19 +7,19 @@ import javafx.scene.control.TextField;
 
 public class SearchController {
     @FXML
-    Button searchButton;
+    Button searchBookBtn;
     @FXML
-    TextField searchBook;
+    TextField searchBookTxt;
     @FXML
-    Label errorLabel;
+    Label errorLbl;
 
     @FXML
     public void btnClick() {
-        if(searchBook.getText().equals("")) {
-            errorLabel.setVisible(true);
-            errorLabel.setText("Please fill in the Title, ISBN or Author");
+        if(searchBookTxt.getText().equals("")) {
+            errorLbl.setVisible(true);
+            errorLbl.setText("Please fill in the Title, ISBN or Author");
         } else {
-            StageBuilder.newScene("booklist.fxml");
+            StageBuilder.newScene("resultscreen.fxml");
         }
     }
 }
