@@ -50,7 +50,10 @@ public class Client {
     public int addResult(int row, int col, int R, int G, int B){
         try {
 
-            results.add(String.format("%02d", row) + String.format("%02d", col) + String.format("%02d", R) + String.format("%02d", G) + String.format("%02d", B));
+            results.add(String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", R) + String.format("%03d", G) + String.format("%03d", B));
+
+            System.out.println(String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", R) + String.format("%03d", G) + String.format("%03d", B));
+
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
             out.println("00" + String.format("%02d", results.size() - 1) + results.get(results.size() - 1));
