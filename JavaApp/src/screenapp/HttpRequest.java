@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HttpRequest {
-    private static final String POST_URL = "http://localhost/index.php";
+    private static final String POST_URL = "http://localhost/controllers/webscraper.php";
     private static final String USER_AGENT = "Mozilla/5.0";
 
     public HttpRequest(){
