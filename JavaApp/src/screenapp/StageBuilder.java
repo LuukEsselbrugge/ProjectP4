@@ -1,10 +1,13 @@
 package screenapp;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.ResourceBundle;
 
 public class StageBuilder {
     private static Stage currentStage;
@@ -31,8 +34,10 @@ public class StageBuilder {
     }
 
     static void newScene(String fxml) {
+        FXMLLoader loader = new FXMLLoader(StageBuilder.class.getResource(fxml));
+
         try {
-            currentScene.setRoot(FXMLLoader.load(StageBuilder.class.getResource(fxml)));
+            currentScene.setRoot(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,9 +45,11 @@ public class StageBuilder {
         currentStage.setScene(currentScene);
     }
 
-    static void newScene(String fxml, String stylesheet){
+    static void newScene(String fxml, String stylesheet) {
+        FXMLLoader loader = new FXMLLoader(StageBuilder.class.getResource(fxml));
+
         try {
-            currentScene.setRoot(FXMLLoader.load(StageBuilder.class.getResource(fxml)));
+            currentScene.setRoot(loader.load());
             currentScene.getStylesheets().removeAll();
             currentScene.getStylesheets().add(stylesheet);
         } catch (IOException e) {
@@ -54,9 +61,5 @@ public class StageBuilder {
 
     static Stage getCurrentStage() {
         return currentStage;
-    }
-
-    static Scene getCurrentScene() {
-        return currentScene;
     }
 }

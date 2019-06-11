@@ -20,6 +20,8 @@ public class ResultController implements Initializable {
     @FXML
     Label resultSumLbl;
 
+    private String message;
+
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Label> items = FXCollections.observableArrayList ();
