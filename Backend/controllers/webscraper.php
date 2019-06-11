@@ -1,5 +1,9 @@
 <?php
+    include_once("simple_html_dom.php");
+?>
+<?php
 	if(!empty($_POST['search'])){
+
 		$search = $_POST['search'];
 
 		$rss = 'http://lbs-nhl.oclc.org:8080//psi_rss/rss_feeds.php?DB=1.5&SEARCH=00yS!i1016!t'. $search .'!aY!cN.oY.vD.wD';
@@ -22,15 +26,24 @@
 			foreach($bookArray as $element){
 				if(preg_match($regex ,$element->innertext)){
 					$value = explode(" ", $element->innertext);
-					echo $value[1] . " " . $value[2] . "<br>";
+					$number = $value[1] . " " . $value[2];
 					break;
 				}
 			}
 
 			$reserverdArray = $htmlBook->find('div  ');
+			$title = $titleArray[$i]->plaintext;
+			$description = $descriptionArray[$i]->plaintext;
 
-			echo $titleArray[$i]->plaintext . "<br>";
-			echo $descriptionArray[$i]->plaintext . "<br><br>";
+			$values[] = array(
+				'number' => $number,
+				'title' => $title,
+				'description' => $description
+			);
 		}
-	}
+		
+		$json = json_encode($values);
+		echo $json;
+	}	
 ?>
+
