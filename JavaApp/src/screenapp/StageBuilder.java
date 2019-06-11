@@ -23,7 +23,7 @@ public class StageBuilder {
             e.printStackTrace();
         }
 
-        currentStage.initStyle(StageStyle.UNDECORATED);
+        //currentStage.initStyle(StageStyle.UNDECORATED);
         currentStage.setMaximized(true);
         currentStage.setScene(currentScene);
         currentStage.show();
