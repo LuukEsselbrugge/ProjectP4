@@ -19,7 +19,6 @@ String searchResults[12] = {"0","0","0","0","0","0","0","0","0","0","0","0"};
 SoftwareSerial ESP(10, 9); // RX, TX
 String inData;
 
-
 void setup() {
   //searchResults[0] = "0101000000255";
   //searchResults[1] = "0101255000000";
@@ -32,18 +31,18 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  testMode();
-
   Serial.println("Hello bami!");
 
   // set the data rate for the ESP port
   ESP.begin(19200);
   tcpConnect();
+  testMode();
 
 }
 
 void loop() { // run over and over
   tcpReceive();
+  
 }
 
 
@@ -76,7 +75,7 @@ void updateLEDS() {
 }
 
 void tcpConnect() {
-  ESP.println("AT+CIPSTART=\"TCP\",\"10.42.0.167\",1337");
+  ESP.println("AT+CIPSTART=\"TCP\",\"10.42.0.1\",1337");
   delay(2000);
   tcpSend(DEVICE_ID);
 }
@@ -114,12 +113,20 @@ void tcpReceive() {
 
         //Command remove
         if (tcpdata[0] == '1') {
-
-
+          if(tcpdata.substring(2, 4).toInt() < 11){
+            searchResults[tcpdata.substring(2, 4).toInt()] = "0";
+            updateLEDS();
+          }
         }
-
+        
+        //Heartbeat
         if (tcpdata[0] == 'a'){
           tcpSend("");
+        }
+
+        //Testmode
+        if (tcpdata[0] == 't'){
+          testMode();
         }
 
       }
@@ -136,23 +143,28 @@ void tcpReceive() {
 }
 
 void testMode(){
-  for(int dot = 0; dot < 58; dot++) { 
-            rowLEDS[dot] = CRGB::White;
-            rowLEDS[dot+1] = CRGB::Red;
-            rowLEDS[dot+2] = CRGB::Green;
+  for(int dot = 0; dot < 60; dot++) { 
+            rowLEDS[dot] = CRGB::Red;
+            colLEDS[dot] = CRGB::Red;
             FastLED.show();
-          
-            delay(10);
-        }
-        for(int dot = 0; dot < 58; dot++) { 
-            colLEDS[dot] = CRGB::White;
-            colLEDS[dot+1] = CRGB::Red;
-            colLEDS[dot+2] = CRGB::Green;
-            FastLED.show();
-        
             delay(10);
         }
         delay(100);
+         for(int dot = 0; dot < 60; dot++) { 
+            rowLEDS[dot] = CRGB::Green;
+            colLEDS[dot] = CRGB::Green;
+            FastLED.show();
+            delay(10);
+        }
+        delay(100);
+         for(int dot = 0; dot < 60; dot++) { 
+            rowLEDS[dot] = CRGB::Blue;
+            colLEDS[dot] = CRGB::Blue;
+            FastLED.show();
+            delay(10);
+        }
+        
+        delay(500);
         FastLED.clear();
         FastLED.show();
 }
