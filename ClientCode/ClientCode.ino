@@ -76,7 +76,7 @@ void updateLEDS() {
 }
 
 void tcpConnect() {
-  ESP.println("AT+CIPSTART=\"TCP\",\"10.42.0.1\",1337");
+  ESP.println("AT+CIPSTART=\"TCP\",\"10.42.0.167\",1337");
   delay(2000);
   tcpSend(DEVICE_ID);
 }
