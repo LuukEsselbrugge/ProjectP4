@@ -1,5 +1,6 @@
 package screenapp;
 
+import com.google.gson.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseButton;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,8 +28,20 @@ public class ResultController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Label> items = FXCollections.observableArrayList ();
 
-        for(int i = 0; i < 10; i++) {
-            items.add(new Label("Test " + i));
+        String results = SharedInstance.getInstance().data;
+        String books = null;
+        try {
+            books = HttpRequest.sendPOST(results, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new Gson();
+        JsonParser jsonParser = new JsonParser();
+        JsonArray jsonArray = (JsonArray) jsonParser.parse(books);
+
+        for (JsonElement json: jsonArray) {
+            System.out.println(json );
         }
 
         bookResultList.setItems(items);
@@ -47,4 +61,5 @@ public class ResultController implements Initializable {
     public void btnClick() {
         StageBuilder.newScene("searchscreen.fxml");
     }
+
 }

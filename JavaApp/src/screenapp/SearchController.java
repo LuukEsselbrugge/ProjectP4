@@ -19,6 +19,7 @@ public class SearchController {
             errorLbl.setVisible(true);
             errorLbl.setText("Please fill in the Title, ISBN or Author");
         } else {
+            SharedInstance.getInstance().data = searchBookTxt.getText();
             StageBuilder.newScene("resultscreen.fxml");
         }
     }

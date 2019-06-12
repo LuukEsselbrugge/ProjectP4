@@ -5,21 +5,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HttpRequest {
-    private static final String POST_URL = "http://localhost/controllers/webscraper/getResults";
+    private static final String POST_URL = "http://projectp4.com/webscraper/getResults?token=secretkey";
     private static final String USER_AGENT = "Mozilla/5.0";
 
-    private static final String POST_BOOK_URL = "http://localhost/controllers/webscraper/getShelfs";
+    private static final String POST_BOOK_URL = "http://projectp4.com/webscraper/getShelfs?token=secretkey";
+
     public HttpRequest(){
 
     }
 
-    public String sendPOST(String search, int url) throws IOException {
+    public static String sendPOST(String search, int url) throws IOException {
         URL obj = null;
 
         if(url == 1){

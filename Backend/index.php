@@ -8,10 +8,10 @@ foreach(glob("controllers/*.php") as $file){
     require $file;
 }
 $ses = new SessionController;
-$token = "";
+$token = "secretkey";
 
 if($ses->checkSession() || isset($_GET["uri"]) && $_GET["uri"] == "session" || isset($_GET["uri"]) && $_GET["uri"] == "upload"
-    || isset($_GET["token"]) && $_GET["token"] == $token && isset($_GET["uri"]) && $_GET["uri"] == "board") {
+    || isset($_GET["token"]) && $_GET["token"] == $token && isset($_GET["uri"]) && $_GET["uri"] == "webscraper") {
 
     if (isset($_GET["uri"])) {
         $cont = $_GET["uri"] . "Controller";
