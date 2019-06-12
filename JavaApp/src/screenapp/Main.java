@@ -9,7 +9,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         StageBuilder.setInitialStage(primaryStage);
 
-        //testServer();
+        testServer();
     }
 
     public static void main(String[] args) {
@@ -17,20 +17,7 @@ public class Main extends Application {
     }
 
     public void testServer(){
-        TCPServer t = new TCPServer(1337);
-        new Thread(t).start();
-
-        while(true) {
-            System.out.println("Connected clients:" + t.getClients().size());
-            for (Client c : t.getClients()) {
-                c.addResult(1, 1, 255, 255, 255);
-               // c.addResult(2, 2, 0, 0, 255);
-            }
-            try {
-                Thread.sleep(2000);
-            } catch (Exception e){
-
-            }
-        }
+        SharedInstance.getInstance().server = new TCPServer(1337);
+        new Thread(SharedInstance.getInstance().server).start();
     }
 }

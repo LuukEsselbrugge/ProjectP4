@@ -11,15 +11,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HttpRequest {
-    private static final String POST_URL = "http://localhost/controllers/webscraper.php";
+    private static final String POST_URL = "http://localhost/controllers/webscraper/getResults";
     private static final String USER_AGENT = "Mozilla/5.0";
 
+    private static final String POST_BOOK_URL = "http://localhost/controllers/webscraper/getShelfs";
     public HttpRequest(){
 
     }
 
-    public String sendPOST(String search) throws IOException {
-        URL obj = new URL(POST_URL);
+    public String sendPOST(String search, int url) throws IOException {
+        URL obj = null;
+
+        if(url == 1){
+            obj = new URL(POST_URL);
+        }
+        if(url == 0){
+            obj = new URL(POST_BOOK_URL);
+        }
+
+        assert obj != null;
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("User-Agent", USER_AGENT);
@@ -55,4 +65,6 @@ public class HttpRequest {
             return failPost;
         }
     }
+
+
 }

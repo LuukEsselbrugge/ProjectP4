@@ -32,7 +32,7 @@
                <Insets top="20.0" />
             </VBox.margin>
            </Label>
-           <Button id="cancelSearchBtn" fx:id="cancelSearchBtn" mnemonicParsing="false" stylesheets="@../StyleSheet.css" text="Cancel current search">
+           <Button id="cancelSearchBtn" fx:id="cancelSearchBtn" mnemonicParsing="false" stylesheets="@../StyleSheet.css" onAction="#cancelSearch" text="Cancel current search">
               <opaqueInsets>
                   <Insets />
               </opaqueInsets>
