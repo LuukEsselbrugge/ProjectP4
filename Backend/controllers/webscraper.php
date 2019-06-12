@@ -55,7 +55,6 @@ class webscraperController{
 					'description' => $description
 				);
 			}
-			
 			$json = json_encode($values);
 			echo $json;
 		}	

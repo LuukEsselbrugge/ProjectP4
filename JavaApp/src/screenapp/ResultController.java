@@ -12,6 +12,8 @@ import javafx.scene.input.MouseButton;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Wrapper;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ResultController implements Initializable {
@@ -36,12 +38,18 @@ public class ResultController implements Initializable {
             e.printStackTrace();
         }
 
-        Gson gson = new Gson();
-        JsonParser jsonParser = new JsonParser();
-        JsonArray jsonArray = (JsonArray) jsonParser.parse(books);
+        assert books != null;
 
-        for (JsonElement json: jsonArray) {
-            System.out.println(json );
+        Gson gson = new Gson();
+        JsonArray jsonArray = (JsonArray)new JsonParser().parse(books);
+        ArrayList<Book> bookArrayList = new ArrayList<>();
+
+        for(int i = 0; i < jsonArray.size(); i++){
+            JsonElement jsonElement = jsonArray.get(i);
+            String jsonString = jsonElement.toString();
+            Book book = gson.fromJson(jsonString, Book.class);
+            bookArrayList.add(book);
+            items.add(new Label(book.getTitle()));
         }
 
         bookResultList.setItems(items);
@@ -60,6 +68,39 @@ public class ResultController implements Initializable {
     @FXML
     public void btnClick() {
         StageBuilder.newScene("searchscreen.fxml");
+    }
+
+    private class Book{
+        private String number;
+        private String title;
+        private String description;
+
+        public Book(){}
+
+
+        public String getNumber() {
+            return number;
+        }
+
+        public void setNumber(String number) {
+            this.number = number;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
     }
 
 }
