@@ -51,6 +51,7 @@ public class ResultController implements Initializable {
             bookArrayList.add(book);
             items.add(new Label(book.getTitle()));
         }
+        SharedInstance.getInstance().books = bookArrayList;
 
         bookResultList.setItems(items);
 
@@ -59,6 +60,8 @@ public class ResultController implements Initializable {
         bookResultList.setOnMouseClicked(mouseEvent -> {
             if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
                 if(mouseEvent.getClickCount() == 2) {
+                    int index = bookResultList.getSelectionModel().getSelectedIndex();
+                    System.out.println(index);
                     StageBuilder.newScene("routescreen.fxml");
                 }
             }
@@ -68,39 +71,6 @@ public class ResultController implements Initializable {
     @FXML
     public void btnClick() {
         StageBuilder.newScene("searchscreen.fxml");
-    }
-
-    private class Book{
-        private String number;
-        private String title;
-        private String description;
-
-        public Book(){}
-
-
-        public String getNumber() {
-            return number;
-        }
-
-        public void setNumber(String number) {
-            this.number = number;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
     }
 
 }
