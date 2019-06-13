@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RouteController implements Initializable {
@@ -27,29 +28,11 @@ public class RouteController implements Initializable {
         Book book = SharedInstance.getInstance().books.get(SharedInstance.getInstance().search_q);
 
         toFindLbl.setText(book.getTitle());
-
-        String result = "";
-        try {
-            result = HttpRequest.sendPOST("*", 0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Gson gson = new Gson();
-        JsonArray jsonArray = (JsonArray)new JsonParser().parse(result);
-        ArrayList<Shelf> shelfs = new ArrayList<>();
-
-        for(int i = 0; i < jsonArray.size(); i++){
-            JsonElement jsonElement = jsonArray.get(i);
-            String jsonString = jsonElement.toString();
-            Shelf shelf = gson.fromJson(jsonString, Shelf.class);
-            shelfs.add(shelf);
-        }
-
-        System.out.println(result);
     }
 
     @FXML
     void cancelSearch() {
     }
+
+
 }

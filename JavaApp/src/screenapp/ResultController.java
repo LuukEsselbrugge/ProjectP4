@@ -53,7 +53,33 @@ public class ResultController implements Initializable {
             if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
                 if(mouseEvent.getClickCount() == 2) {
                     SharedInstance.getInstance().search_q = bookResultList.getSelectionModel().getSelectedIndex();
-                    StageBuilder.newScene("routescreen.fxml");
+                    Book book = books.get(bookResultList.getSelectionModel().getSelectedIndex());
+
+                    String result = "";
+                    try {
+                        result = HttpRequest.sendPOST("*", 0);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Gson gson = new Gson();
+                    JsonArray jsonArray = (JsonArray)new JsonParser().parse(result);
+                    ArrayList<Shelf> shelfs = new ArrayList<>();
+
+                    for(int i = 0; i < jsonArray.size(); i++){
+                        JsonElement jsonElement = jsonArray.get(i);
+                        String jsonString = jsonElement.toString();
+                        Shelf shelf = gson.fromJson(jsonString, Shelf.class);
+                        shelfs.add(shelf);
+                    }
+
+                    int index = BinarySearch.search(shelfs, book.getNumber(), 0, shelfs.size()-1);
+                    if(index == -1){
+                        resultSumLbl.setText("Geen resultaat gevonden");
+                    }else{
+                        System.out.println("bookshelf: " + shelfs.get(index).getBookshelf() + " row: " + shelfs.get(index).getCol() + " col: " + shelfs.get(index).getRow());
+                        StageBuilder.newScene("routescreen.fxml");
+                    }
                 }
             }
         });
@@ -63,5 +89,7 @@ public class ResultController implements Initializable {
     public void btnClick() {
         StageBuilder.newScene("searchscreen.fxml");
     }
+
+
 
 }
