@@ -9,9 +9,8 @@ import java.net.URL;
 
 public class HttpRequest {
     private static final String POST_URL = "http://projectp4.com/webscraper/getResults?token=secretkey";
-    private static final String USER_AGENT = "Mozilla/5.0";
-
     private static final String POST_BOOK_URL = "http://projectp4.com/webscraper/getShelfs?token=secretkey";
+    private static final String USER_AGENT = "Mozilla/5.0";
 
     public HttpRequest(){
 

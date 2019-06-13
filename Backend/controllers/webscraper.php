@@ -1,18 +1,20 @@
 <?php
 	include_once("simple_html_dom.php");
 class webscraperController{
+    private $db;
 
 	public function getShelfs(){
 		$this->db = (new Database())->connect();
-        $sql = $this->db->prepare("SELECT * FROM shelf");
+        $sql = $this->db->prepare("SELECT * FROM Shelf");
         $status = $sql->execute(array());
         if (!$status) {
             echo "Something went wrong. Please try again later";
             die();
         }
-        $books = $sql->fetchall(DBO::FETCH_ASSOC);
+        $books = $sql->fetchall(PDO::FETCH_ASSOC);
 
-        echo $books;
+		$json = json_encode($books);
+		echo $json;
 	}
 
 	public function getResults(){
