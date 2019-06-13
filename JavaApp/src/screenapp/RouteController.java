@@ -23,6 +23,11 @@ public class RouteController implements Initializable {
     @FXML
     Button cancelSearchBtn;
 
+    /**
+     * Initialize the view for the route.
+     * @param url , URl url
+     * @param resourceBundle , Resourcebundle for display
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Book book = SharedInstance.getInstance().books.get(SharedInstance.getInstance().search_q);

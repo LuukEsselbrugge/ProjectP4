@@ -26,22 +26,26 @@ public class ResultController implements Initializable {
     Button backBtn;
     @FXML
     Label resultSumLbl;
+    private static final String POST_BOOK_URL = "http://projectp4.com/webscraper/getShelfs?token=secretkey";
 
     private String message;
 
+    /**
+     * Initialize the view for fxml.
+     * @param url , Url url
+     * @param resourceBundle , Resourcebundle
+     */
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Label> items = FXCollections.observableArrayList ();
 
         ArrayList<Book> books = SharedInstance.getInstance().books;
 
+        // Fill the Label list items.
         for(Book book : books) {
             Label lbl = new Label();
-
             lbl.setFont(new Font("verdana", 10.0));
-
             lbl.setText(book.getTitle() + " \n   " + book.getDescription());
-
             items.add(lbl);
         }
 
@@ -49,23 +53,29 @@ public class ResultController implements Initializable {
 
         resultSumLbl.setText(items.size() + " result(s) have been found");
 
+        /**
+         * Create on click event for selected books.
+         */
         bookResultList.setOnMouseClicked(mouseEvent -> {
             if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
                 if(mouseEvent.getClickCount() == 2) {
                     SharedInstance.getInstance().search_q = bookResultList.getSelectionModel().getSelectedIndex();
                     Book book = books.get(bookResultList.getSelectionModel().getSelectedIndex());
 
+                    // Do a httprequest on the selected book to get the list of available shells from the database.
                     String result = "";
                     try {
-                        result = HttpRequest.sendPOST("*", 0);
+                        result = HttpRequest.sendPOST("*", POST_BOOK_URL);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
+                    // Transform the returned jsonString to a jsonArray.
                     Gson gson = new Gson();
                     JsonArray jsonArray = (JsonArray)new JsonParser().parse(result);
                     ArrayList<Shelf> shelfs = new ArrayList<>();
 
+                    // Create an object for every JsonElement in the jsonArray.
                     for(int i = 0; i < jsonArray.size(); i++){
                         JsonElement jsonElement = jsonArray.get(i);
                         String jsonString = jsonElement.toString();
@@ -73,11 +83,13 @@ public class ResultController implements Initializable {
                         shelfs.add(shelf);
                     }
 
+                    // Do a binarysearch on the book that is selected.
                     int index = BinarySearch.search(shelfs, book.getNumber(), 0, shelfs.size()-1);
                     if(index == -1){
                         resultSumLbl.setText("Geen resultaat gevonden");
                     }else{
                         System.out.println("bookshelf: " + shelfs.get(index).getBookshelf() + " row: " + shelfs.get(index).getCol() + " col: " + shelfs.get(index).getRow());
+                        SharedInstance.getInstance().result = shelfs.get(index);
                         StageBuilder.newScene("routescreen.fxml");
                     }
                 }

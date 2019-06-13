@@ -8,7 +8,12 @@ class SharedInstance {
     int search_q = 0;
     TCPServer server;
     ArrayList<Book> books;
+    Shelf result;
 
+    /**
+     * Shared instance class for sharing variables.
+     * @return , instance object.
+     */
     static SharedInstance getInstance() {
         if(_instance == null) {
             _instance = new SharedInstance();

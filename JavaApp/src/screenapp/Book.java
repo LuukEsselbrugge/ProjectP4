@@ -5,30 +5,33 @@ public class Book {
     private String title;
     private String description;
 
-    public Book(){}
+    /**
+     * Constructor for book
+     */
+    public Book() {
+    }
 
-
+    /**
+     * Returns the ID of the book.
+     * @return , String number
+     */
     String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
+    /**
+     * Returns the title of the book.
+     * @return , String title
+     */
     String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
+    /**
+     * Returns the  description of the book.
+     * @return , String description.
+     */
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

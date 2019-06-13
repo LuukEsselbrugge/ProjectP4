@@ -20,6 +20,11 @@ public class SearchController {
     @FXML
     Label errorLbl;
 
+    private static final String POST_URL = "http://projectp4.com/webscraper/getResults?token=secretkey";
+
+    /**
+     * Search function on button click. Will trigger an event to do a httprequest to the server.
+     */
     @FXML
     public void btnClick() {
         if(searchBookTxt.getText().equals("")) {
@@ -29,17 +34,20 @@ public class SearchController {
             String results = searchBookTxt.getText();
             String books = null;
             try {
-                books = HttpRequest.sendPOST(results, 1);
+                // httprequest.
+                books = HttpRequest.sendPOST(results, POST_URL);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
             assert books != null;
 
+            // Transform jsonString from result into jsonArray.
             Gson gson = new Gson();
             JsonArray jsonArray = (JsonArray)new JsonParser().parse(books);
             ArrayList<Book> bookArrayList = new ArrayList<>();
 
+            // Add each JsonElement to ArrayList<Book> as object Book.
             for(int i = 0; i < jsonArray.size(); i++){
                 JsonElement jsonElement = jsonArray.get(i);
                 String jsonString = jsonElement.toString();

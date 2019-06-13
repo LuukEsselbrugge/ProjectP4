@@ -8,23 +8,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class HttpRequest {
-    private static final String POST_URL = "http://projectp4.com/webscraper/getResults?token=secretkey";
-    private static final String POST_BOOK_URL = "http://projectp4.com/webscraper/getShelfs?token=secretkey";
     private static final String USER_AGENT = "Mozilla/5.0";
 
     public HttpRequest(){
 
     }
 
-    public static String sendPOST(String search, int url) throws IOException {
-        URL obj = null;
-
-        if(url == 1){
-            obj = new URL(POST_URL);
-        }
-        if(url == 0){
-            obj = new URL(POST_BOOK_URL);
-        }
+    /**
+     * Do a httprequest on a specific url and search term.
+     * @param search , searchterm trying to send.
+     * @param url , url to send it to.
+     * @return , returns a jsonString.
+     * @throws IOException
+     */
+    public static String sendPOST(String search, String url) throws IOException {
+        URL obj = new URL(url);
 
         assert obj != null;
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
