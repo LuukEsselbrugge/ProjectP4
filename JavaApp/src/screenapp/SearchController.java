@@ -68,5 +68,6 @@ public class SearchController {
             bookArrayList.add(book);
         }
         SharedInstance.getInstance().books = bookArrayList;
+        StageBuilder.newScene("resultscreen.fxml");
     }
 }

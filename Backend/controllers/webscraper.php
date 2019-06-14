@@ -21,17 +21,19 @@ class webscraperController{
 		if(!empty($_POST['search'])){
 
 			$search = $_POST['search'];
-	
+
+			$search = str_replace(" ", "+", $search);
+			
 			$rss = 'http://lbs-nhl.oclc.org:8080//psi_rss/rss_feeds.php?DB=1.5&SEARCH=00yS!i1016!t'. $search .'!aY!cN.oY.vD.wD';
-			$html = file_get_html($rss);		
+			$html = file_get_html($rss);			
 	
-			$itemArray = $html->find('item');	
+			$itemArray = $html->find('item');		
 			$titleArray = $html->find('item title');
 			$descriptionArray = $html->find('item description');
 			$max = sizeof($titleArray);
 	
 	
-			for($i=0; $i < 10; $i++){
+			for($i=0; $i < $max; $i++){
 				$book = substr($itemArray[$i]->plaintext, 0, 56);
 				$htmlBook = file_get_html($book);
 	
