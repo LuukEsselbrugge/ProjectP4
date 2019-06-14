@@ -78,20 +78,31 @@
 }
 
 #bookResultLst {
-    -fx-max-height: 450px;
-    -fx-max-width: 1200px;
+    -fx-max-height: 650px;
+    -fx-max-width: 1450px;
 }
 
 #titleLbl {
-    -fx-font: 32px "Calibri";
+    -fx-font: 28px "Calibri";
     -fx-font-weight: bold;
 }
 
 #authorLbl {
-    -fx-font: 26px "Calibri";
+    -fx-font: 24px "Calibri";
     -fx-font-style: italic;
 }
 
 #locationLbl {
     -fx-font: 22px "Calibri";
+}
+
+#loadingLbl {
+    -fx-background-image: url("screenapp/assets/bookloading.gif");
+    -fx-background-position: left top, center;
+    -fx-background-size: cover, auto;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+    -fx-background-color: transparent;
+    -fx-column-halignment: center;
+    visibility: false;
 }

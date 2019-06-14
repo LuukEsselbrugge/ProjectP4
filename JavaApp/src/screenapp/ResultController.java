@@ -47,6 +47,7 @@ public class ResultController implements Initializable {
 
         items.addAll(books);
 
+
         bookResultList.setItems(items);
 
         resultSumLbl.setText(items.size() + " result(s) have been found");
@@ -86,7 +87,7 @@ public class ResultController implements Initializable {
                     if(index == -1){
                         resultSumLbl.setText("Geen resultaat gevonden");
                     }else{
-                        System.out.println("bookshelf: " + shelfs.get(index).getBookshelf() + " col: " + shelfs.get(index).getRow() + " row: " + shelfs.get(index).getCol());
+                        System.out.println("bookshelf: " + shelfs.get(index).getBookshelf() + " row: " + shelfs.get(index).getCol() + " col: " + shelfs.get(index).getRow());
                         SharedInstance.getInstance().result = shelfs.get(index);
                         StageBuilder.newScene("routescreen.fxml");
                     }

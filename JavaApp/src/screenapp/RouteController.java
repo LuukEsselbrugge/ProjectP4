@@ -29,7 +29,8 @@ public class RouteController implements Initializable {
 
     @FXML
     void cancelSearch() {
+        SharedInstance.getInstance().books = null;
+
+        StageBuilder.newScene("searchscreen.fxml");
     }
-
-
 }
