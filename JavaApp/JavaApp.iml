@@ -11,7 +11,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Program Files/Java/gson-2.8.5.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/gson-2.8.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
