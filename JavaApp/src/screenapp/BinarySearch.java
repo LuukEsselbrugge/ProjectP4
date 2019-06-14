@@ -21,14 +21,12 @@ public class BinarySearch{
         while(low <= high){
             int mid = (high + low) / 2;
 
-
             // Change the Strings to lowercase all, to prevent uppercase issues.
             String[] lowBookNr = arr.get(mid).getLowestBookNr().toLowerCase().split(" ");
             String[] highBookNr = arr.get(mid).getHighestBookNr().toLowerCase().split(" ");
             String[] valueArray = value.toLowerCase().split(" ");
 
-
-
+            // Create a float for the book number and an string for author.
             float lowBkNrFloat = Float.parseFloat(lowBookNr[0]);
             String lowBkNrAuthor = lowBookNr[1].substring(0, 3);
 
@@ -38,10 +36,11 @@ public class BinarySearch{
             float valueFloat = Float.parseFloat(valueArray[0]);
             String valueAuthor = valueArray[1].substring(0, 3);
 
+            // Make a decimalformat to create generic Strings.
             DecimalFormat df = new DecimalFormat("0.0");
 
+            // Make all book ID's uniform.
             String lowestBook = (df.format(lowBkNrFloat) + lowBkNrAuthor).toLowerCase();
-            System.out.println(lowestBook);
             String highestBook = (df.format(highBkNrFloat) + highBkNrAuthor).toLowerCase();
             String searchValue = (df.format(valueFloat) + valueAuthor).toLowerCase();
 
@@ -54,20 +53,6 @@ public class BinarySearch{
                 index = mid;
                 break;
             }
-
-//            if(lowBkNrFloat < valueFloat && highBkNrFloat < valueFloat){
-//                low = mid + 1;
-//            }else if(lowBkNrFloat > valueFloat && highBkNrFloat > valueFloat){
-//                high = mid - 1;
-//            }else if(lowBkNrFloat == valueFloat || highBkNrFloat == valueFloat || (lowBkNrFloat < valueFloat && highBkNrFloat > valueFloat)){
-//                if(lowBkNrAuthor.compareTo(valueAuthor) < 0 && highBkNrAuthor.compareTo(valueAuthor) < 0){
-//                    low = mid + 1;
-//                }else if(lowBkNrAuthor.compareTo(valueAuthor) > 0 && highBkNrAuthor.compareTo(valueAuthor) > 0){
-//                    high = mid -1;
-//                }else if()
-//                index = mid;
-//                break;
-//            }
         }
         return index;
     }
