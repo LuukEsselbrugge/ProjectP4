@@ -20,7 +20,7 @@ class webscraperController{
 	public function getResults(){
 		if(!empty($_POST['search'])){
 
-			$search = $_POST['search'];
+			$search = htmlentities($_POST['search']);
 
 			$search = str_replace(" ", "+", $search);
 			
