@@ -23,7 +23,20 @@ public class RouteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Book book = SharedInstance.getInstance().books.get(SharedInstance.getInstance().search_q);
-
+        switch (SharedInstance.getInstance().counter){
+            case 0:
+                //Todo Insert TCP server connection and color..
+                colorLbl.setText("RED");
+                break;
+            case 1:
+                //Todo Insert TCP server connection and color.
+                colorLbl.setText("BLUE");
+                break;
+            case 2:
+                //Todo insert TCP server connection and color.
+                colorLbl.setText("GREEN");
+                break;
+        }
         toFindLbl.setText(book.getTitle());
     }
 

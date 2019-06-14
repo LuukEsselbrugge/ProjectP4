@@ -9,6 +9,7 @@ class SharedInstance {
     TCPServer server;
     ArrayList<Book> books;
     Shelf result;
+    int counter = 0;
 
     /**
      * Shared instance class for sharing variables.
