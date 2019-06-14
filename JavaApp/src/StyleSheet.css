@@ -82,6 +82,16 @@
     -fx-max-width: 1200px;
 }
 
-#bookResultLst .label {
+#titleLbl {
     -fx-font: 32px "Calibri";
+    -fx-font-weight: bold;
+}
+
+#authorLbl {
+    -fx-font: 26px "Calibri";
+    -fx-font-style: italic;
+}
+
+#locationLbl {
+    -fx-font: 22px "Calibri";
 }

@@ -11,11 +11,17 @@ public class Book {
     public Book() {
     }
 
+    public Book(String title, String number, String description) {
+        this.title = title;
+        this.number = number;
+        this.description = description;
+    }
+
     /**
      * Returns the ID of the book.
      * @return , String number
      */
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -23,7 +29,7 @@ public class Book {
      * Returns the title of the book.
      * @return , String title
      */
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
