@@ -35,19 +35,16 @@ public class RouteController implements Initializable {
         int[] RGB = {0, 0, 0};
         switch (SharedInstance.getInstance().counter){
             case 0:
-                //Todo Insert TCP server connection and color..
                 colorLbl.setText("RED");
                 colorLbl.setTextFill(Paint.valueOf("red"));
                 RGB[0] = 255;
                 break;
             case 1:
-                //Todo Insert TCP server connection and color..
                 colorLbl.setText("GREEN");
                 colorLbl.setTextFill(Paint.valueOf("green"));
                 RGB[1] = 255;
                 break;
             case 2:
-                //Todo insert TCP server connection and color.
                 colorLbl.setText("BLUE");
                 colorLbl.setTextFill(Paint.valueOf("blue"));
                 RGB[2] = 255;
