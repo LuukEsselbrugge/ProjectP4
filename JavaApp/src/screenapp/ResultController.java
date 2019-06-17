@@ -89,11 +89,6 @@ public class ResultController implements Initializable {
                     }else{
                         System.out.println("bookshelf: " + shelfs.get(index).getBookshelf() + " row: " + shelfs.get(index).getCol() + " col: " + shelfs.get(index).getRow());
                         SharedInstance.getInstance().result = shelfs.get(index);
-                        if(SharedInstance.getInstance().counter < 3){
-                            SharedInstance.getInstance().counter++;
-                        }else{
-                            SharedInstance.getInstance().counter = 0;
-                        }
                         StageBuilder.newScene("routescreen.fxml");
                     }
                 }

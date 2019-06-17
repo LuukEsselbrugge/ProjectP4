@@ -1,5 +1,6 @@
 <?php
 	include_once("simple_html_dom.php");
+	
 class webscraperController{
     private $db;
 
