@@ -54,7 +54,7 @@ public class RouteController implements Initializable {
 
         Shelf shelf = SharedInstance.getInstance().result;
 
-        String kast = "Kast " + shelf.getBookshelf();
+        String kast = "Kast" + shelf.getBookshelf();
 
         for(Client client : SharedInstance.getInstance().server.getClients()){
             if(client.getID().equals(kast)){
