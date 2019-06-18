@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `bookshelf`
 --
 
-CREATE TABLE `bookshelf` (
+CREATE TABLE `Bookshelf` (
   `shelfID` int(2) NOT NULL,
   `Mac` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -37,7 +37,7 @@ CREATE TABLE `bookshelf` (
 -- Dumping data for table `bookshelf`
 --
 
-INSERT INTO `bookshelf` (`shelfID`, `Mac`) VALUES
+INSERT INTO `Bookshelf` (`shelfID`, `Mac`) VALUES
 (1, 'abcd'),
 (2, 'abcd'),
 (3, 'abcd'),
@@ -53,7 +53,7 @@ INSERT INTO `bookshelf` (`shelfID`, `Mac`) VALUES
 -- Table structure for table `sessions`
 --
 
-CREATE TABLE `sessions` (
+CREATE TABLE `Sessions` (
   `SessionID` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `UserID` varchar(8) COLLATE utf8mb4_bin NOT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -63,7 +63,7 @@ CREATE TABLE `sessions` (
 -- Dumping data for table `sessions`
 --
 
-INSERT INTO `sessions` (`SessionID`, `UserID`, `Date`) VALUES
+INSERT INTO `Sessions` (`SessionID`, `UserID`, `Date`) VALUES
 ('a9eccbe7159df695a15003970aa5a9ad', 'Hj56Tfu4', '2019-05-21 11:04:22'),
 ('10477d41e89a78fac060cda0fbdd7346', 'Hj56Tfu4', '2019-05-21 12:16:07'),
 ('d8d7abc6adc91e3eff85bd77df9d95c4', 'ADminADM', '2019-05-22 14:25:46');
@@ -74,7 +74,7 @@ INSERT INTO `sessions` (`SessionID`, `UserID`, `Date`) VALUES
 -- Table structure for table `shelf`
 --
 
-CREATE TABLE `shelf` (
+CREATE TABLE `Shelf` (
   `shelfID` int(5) NOT NULL,
   `bookshelf` int(2) NOT NULL,
   `Row` int(2) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE `shelf` (
 -- Dumping data for table `shelf`
 --
 
-INSERT INTO `shelf` (`bookshelf`, `Row`, `Col`, `lowestBookNr`, `highestBookNr`) VALUES
+INSERT INTO `Shelf` (`bookshelf`, `Row`, `Col`, `lowestBookNr`, `highestBookNr`) VALUES
 (1, 1, 1, '003.0 baar', '035.0 nede'),
 (1, 2, 1, '048.0 fond', '135.0 mead'),
 (1, 3, 1, '153.2 kenn', '213.0 blok'),
@@ -144,7 +144,7 @@ INSERT INTO `shelf` (`bookshelf`, `Row`, `Col`, `lowestBookNr`, `highestBookNr`)
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `Users` (
   `UserID` varchar(8) COLLATE utf8mb4_bin NOT NULL,
   `Email` varchar(64) COLLATE utf8mb4_bin NOT NULL,
   `Firstname` varchar(64) COLLATE utf8mb4_bin NOT NULL,
@@ -158,7 +158,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UserID`, `Email`, `Firstname`, `Lastname`, `Password`, `Image`, `Admin`) VALUES
+INSERT INTO `Users` (`UserID`, `Email`, `Firstname`, `Lastname`, `Password`, `Image`, `Admin`) VALUES
 ('2fb7f6fd', '', 'Gebruiker', '', '', '', 0),
 ('ADminADM', 'admin@admin.com', 'Admin', 'Admin', '48d72c13fc7e5e725df863060f41efca7a54e3a3768a8c6234d29d7a93ef2176', '', 1),
 ('Hj56Tfu4', 'test@test.com', 'Test', 'Test', '8006bff45df325736f290a05e4e9bb0093f9ef6fc545a146c1b06f5ef3aaba88', '', 0),
@@ -171,7 +171,7 @@ INSERT INTO `users` (`UserID`, `Email`, `Firstname`, `Lastname`, `Password`, `Im
 --
 -- Indexes for table `shelf`
 --
-ALTER TABLE `shelf`
+ALTER TABLE `Shelf`
   ADD PRIMARY KEY (`shelfID`),
   ADD UNIQUE KEY `shelfID` (`shelfID`),
   ADD UNIQUE KEY `shelfID_2` (`shelfID`);
@@ -179,7 +179,7 @@ ALTER TABLE `shelf`
 --
 -- Indexes for table `users`
 --
-ALTER TABLE `users`
+ALTER TABLE `Users`
   ADD UNIQUE KEY `UserID` (`UserID`);
 
 --
@@ -189,7 +189,7 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for table `shelf`
 --
-ALTER TABLE `shelf`
+ALTER TABLE `Shelf`
   MODIFY `shelfID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
