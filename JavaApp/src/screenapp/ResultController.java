@@ -3,19 +3,15 @@ package screenapp;
 import com.google.gson.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.Style;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseButton;
-import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Array;
-import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 

@@ -4,18 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
 
 public class SearchController {
     @FXML
@@ -38,7 +33,6 @@ public class SearchController {
             errorLbl.setVisible(true);
             errorLbl.setText("Please fill in the Title, ISBN or Author");
         } else {
-
             searchBooks();
         }
     }
