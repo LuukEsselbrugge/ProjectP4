@@ -78,8 +78,8 @@ public class ResultController implements Initializable {
                         shelfs.add(shelf);
                     }
 
-                    // Do a binarysearch on the book that is selected.
-                    int index = BinarySearch.search(shelfs, book.getNumber());
+                    // Do a sequentialsearch on the book that is selected.
+                    int index = BinarySearch.sequential(shelfs, book.getNumber());
                     if(index == -1){
                         resultSumLbl.setText("Geen resultaat gevonden");
                     }else{
