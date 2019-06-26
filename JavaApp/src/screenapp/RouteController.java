@@ -4,10 +4,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static java.awt.Color.WHITE;
 
 public class RouteController implements Initializable {
     @FXML
@@ -31,6 +36,7 @@ public class RouteController implements Initializable {
         }else{
             SharedInstance.getInstance().counter = 0;
         }
+        colorLbl.setStyle("-fx-background-color: white");
 
         int[] RGB = {0, 0, 0};
         switch (SharedInstance.getInstance().counter){
@@ -50,9 +56,10 @@ public class RouteController implements Initializable {
                 RGB[2] = 255;
                 break;
         }
-        toFindLbl.setText(book.getTitle());
 
         Shelf shelf = SharedInstance.getInstance().result;
+
+        toFindLbl.setText("The location is closet " + shelf.getBookshelf() + " in column " + shelf.getCol() + " on row " + shelf.getRow());
 
         String kast = "Kast" + shelf.getBookshelf();
 
