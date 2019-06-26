@@ -32,9 +32,13 @@ class webscraperController{
 			$titleArray = $html->find('item title');
 			$descriptionArray = $html->find('item description');
 			$max = sizeof($titleArray);
+			$times = 20;
+			
+			if($max < 20){
+				$times = $max;
+			}
 	
-	
-			for($i=0; $i < $max; $i++){
+			for($i=0; $i < $times; $i++){
 				$book = substr($itemArray[$i]->plaintext, 0, 56);
 				$htmlBook = file_get_html($book);
 	
