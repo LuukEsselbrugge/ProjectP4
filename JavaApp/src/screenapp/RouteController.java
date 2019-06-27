@@ -31,14 +31,17 @@ public class RouteController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Book book = SharedInstance.getInstance().books.get(SharedInstance.getInstance().search_q);
 
-        if(SharedInstance.getInstance().counter < 3){
+        if(SharedInstance.getInstance().counter < 2){
             SharedInstance.getInstance().counter++;
         }else{
             SharedInstance.getInstance().counter = 0;
         }
+
         colorLbl.setStyle("-fx-background-color: white");
 
         int[] RGB = {0, 0, 0};
+
+
         switch (SharedInstance.getInstance().counter){
             case 0:
                 colorLbl.setText("RED");

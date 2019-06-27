@@ -41,35 +41,24 @@ public class TCPServer implements Runnable {
         }
         openServerSocket();
         while (!isStopped()) {
-            Client c = new Client(null);
+
             try {
 
                 Socket s = this.serverSocket.accept();
-                s.setSoTimeout(15000);
-                c = new Client(s);
-                clients.add(c);
+                //s.setSoTimeout(15000);
+
                 System.out.println("Client connected");
 
-                BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
-                String ID = br.readLine();
-                c.setID(ID);
-
-
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println("Client send " + line);
-                    c.heartBeat();
-                    try {
-                        Thread.sleep(10000);
-                    }catch (Exception e){
-
+                (new Thread() {
+                    public void run() {
+                        waitForCommand(s);
                     }
-                }
+                }).start();
 
             }
             catch (SocketTimeoutException e){
                 System.out.println("Client timed out lmao");
-                c.closeSocket();
+                //c.closeSocket();
 
             }
             catch (IOException e) {
@@ -82,6 +71,33 @@ public class TCPServer implements Runnable {
 
         }
         System.out.println("Server Stopped.");
+    }
+
+    public void waitForCommand(Socket s){
+        Client c = new Client(s);
+        try {
+
+            clients.add(c);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+            String ID = br.readLine();
+            c.setID(ID);
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println("Client send " + line);
+//                c.heartBeat();
+//                try {
+//                    Thread.sleep(10000);
+//                }catch (Exception e){
+//
+//                }
+
+            }
+        }catch (Exception e){
+            System.out.println(e.toString());
+            c.closeSocket();
+        }
     }
 
 
