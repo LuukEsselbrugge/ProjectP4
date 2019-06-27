@@ -8,7 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
+import java.awt.geom.Area;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -34,6 +37,18 @@ public class SearchController {
             errorLbl.setText("Please fill in the Title, ISBN or Author");
         } else {
             searchBooks();
+        }
+    }
+
+    @FXML
+    public void onKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode() == KeyCode.ENTER){
+            if(searchBookTxt.getText().equals("")) {
+                errorLbl.setVisible(true);
+                errorLbl.setText("Please fill in the Title, ISBN or Author");
+            } else {
+                searchBooks();
+            }
         }
     }
 
@@ -64,4 +79,6 @@ public class SearchController {
         SharedInstance.getInstance().books = bookArrayList;
         StageBuilder.newScene("resultscreen.fxml");
     }
+
+
 }

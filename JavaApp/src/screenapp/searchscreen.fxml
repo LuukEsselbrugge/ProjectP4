@@ -20,7 +20,7 @@
       <RowConstraints />
       <RowConstraints />
    </rowConstraints>
-   <TextField id="searchBookTxt" fx:id="searchBookTxt" promptText="Title, ISBN or Author" GridPane.columnIndex="1" GridPane.rowIndex="2">
+   <TextField id="searchBookTxt" fx:id="searchBookTxt" promptText="Title, ISBN or Author" GridPane.columnIndex="1" GridPane.rowIndex="2" onKeyPressed="#onKeyPressed">
       <font>
          <Font name="Calibri Bold" size="32.0" />
       </font>
