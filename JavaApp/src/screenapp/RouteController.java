@@ -68,7 +68,7 @@ public class RouteController implements Initializable {
 
         for(Client client : SharedInstance.getInstance().server.getClients()){
             if(client.getID().equals(kast)){
-                client.addResult(shelf.getRow(), shelf.getCol(), RGB[0], RGB[1], RGB[2]);
+                client.addResult(shelf.getCol(), shelf.getRow(), RGB[0], RGB[1], RGB[2]);
             }
         }
     }

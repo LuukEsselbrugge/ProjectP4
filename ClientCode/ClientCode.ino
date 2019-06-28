@@ -63,7 +63,7 @@ void updateLEDS() {
       }
       //Plaats resultaat op eerste lege led van gegeven Col
       for (int x = 0; x < LEDPerCol; x++) {
-        int num = String(searchResults[i].substring(0, 2)).toInt() * LEDPerCol - LEDPerCol + x;
+        int num = String(searchResults[i].substring(2, 4)).toInt() * LEDPerCol - LEDPerCol + x;
         if (colLEDS[num].r == 0 && colLEDS[num].g == 0 && colLEDS[num].b == 0 ) {
           colLEDS[num] = color;
           x = LEDPerCol;
@@ -75,7 +75,7 @@ void updateLEDS() {
 }
 
 void tcpConnect() {
-  ESP.println("AT+CIPSTART=\"TCP\",\"10.0.0.101\",1337");
+  ESP.println("AT+CIPSTART=\"TCP\",\"10.0.0.104\",1337");
   delay(2000);
   tcpSend(DEVICE_ID);
 }

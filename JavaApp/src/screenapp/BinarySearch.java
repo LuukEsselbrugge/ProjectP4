@@ -90,7 +90,7 @@ public class BinarySearch{
             String highestBook = (df.format(highBkNrFloat) + highBkNrAuthor).toLowerCase();
             String searchValue = (df.format(valueFloat) + valueAuthor).toLowerCase();
 
-            if(lowestBook.compareTo(searchValue) <= 0 && highestBook.compareTo(searchValue) >= 0){
+            if(lowestBook.compareTo(searchValue) == 0 || highestBook.compareTo(searchValue) == 0 || (lowestBook.compareTo(searchValue) < 0 && highestBook.compareTo(searchValue) > 0)){
                 index = i;
             }
         }
