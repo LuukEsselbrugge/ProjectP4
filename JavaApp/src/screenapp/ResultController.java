@@ -67,7 +67,13 @@ public class ResultController implements Initializable {
 
                     // Transform the returned jsonString to a jsonArray.
                     Gson gson = new Gson();
-                    JsonArray jsonArray = (JsonArray)new JsonParser().parse(result);
+                    JsonArray jsonArray = null;
+                    try{
+                        jsonArray = (JsonArray)new JsonParser().parse(result);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                     ArrayList<Shelf> shelfs = new ArrayList<>();
 
                     // Create an object for every JsonElement in the jsonArray.

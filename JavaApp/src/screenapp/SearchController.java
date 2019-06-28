@@ -64,9 +64,16 @@ public class SearchController {
 
         assert books != null;
 
-        // Transform jsonString from result into jsonArray.
         Gson gson = new Gson();
-        JsonArray jsonArray = (JsonArray)new JsonParser().parse(books);
+        JsonArray jsonArray = null;
+        try{
+            // Transform jsonString from result into jsonArray.
+            gson = new Gson();
+            jsonArray = (JsonArray)new JsonParser().parse(books);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         ArrayList<Book> bookArrayList = new ArrayList<>();
 
         // Add each JsonElement to ArrayList<Book> as object Book.
