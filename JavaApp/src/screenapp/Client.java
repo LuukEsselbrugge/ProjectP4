@@ -58,7 +58,7 @@ public class Client {
             new Thread(() -> {
                 try {
                     Thread.sleep(60000);
-                    removeResult(id);
+                    removeResult(id, row, col);
                 }catch (Exception e){
 
                 }
@@ -78,11 +78,12 @@ public class Client {
         return results.size() - 1;
     }
 
-    public void removeResult(int id){
+    public void removeResult(int id, int row, int col){
         try {
             results.remove(id);
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            out.println("01" + id);
+            //out.println("01" + id);
+            out.println("00" + String.format("%02d", id - 1) + String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", 0) + String.format("%03d", 0) + String.format("%03d", 0));
 
             BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String respond = br.readLine();
