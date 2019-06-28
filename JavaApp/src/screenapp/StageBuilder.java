@@ -26,7 +26,7 @@ public class StageBuilder {
         //currentStage.initStyle(StageStyle.UNDECORATED);
         //currentStage.setMaximized(true);
         currentStage.setWidth(1366);
-        currentStage.setHeight(768);
+        currentStage.setHeight(800);
         currentStage.setScene(currentScene);
         currentStage.show();
         currentStage.requestFocus();
