@@ -62,7 +62,7 @@ public class RouteController implements Initializable {
 
         Shelf shelf = SharedInstance.getInstance().result;
 
-        toFindLbl.setText("The location is closet " + shelf.getBookshelf() + " in column " + shelf.getCol() + " on row " + shelf.getRow());
+        toFindLbl.setText("The location is Closet nr. " + shelf.getBookshelf());
 
         String kast = "Kast" + shelf.getBookshelf();
 

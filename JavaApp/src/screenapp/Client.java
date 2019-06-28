@@ -57,7 +57,7 @@ public class Client {
 
             new Thread(() -> {
                 try {
-                    Thread.sleep(30000);
+                    Thread.sleep(60000);
                     removeResult(id);
                 }catch (Exception e){
 
