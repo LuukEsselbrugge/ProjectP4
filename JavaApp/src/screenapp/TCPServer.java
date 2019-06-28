@@ -45,7 +45,7 @@ public class TCPServer implements Runnable {
             try {
 
                 Socket s = this.serverSocket.accept();
-                s.setSoTimeout(15000);
+//                s.setSoTimeout(15000);
 
                 System.out.println("Client connected");
 
@@ -83,16 +83,24 @@ public class TCPServer implements Runnable {
             String ID = br.readLine();
             c.setID(ID);
 
+//            (new Thread() {
+//                public void run() {
+//                    while(true){
+//                        c.heartBeat();
+//                        try {
+//                            Thread.sleep(10000);
+//                        }catch (Exception e){
+//
+//                        }
+//                    }
+//                }
+//            }).start();
+
+
+
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println("Client send " + line);
-                c.heartBeat();
-                try {
-                    Thread.sleep(10000);
-                }catch (Exception e){
-
-                }
-
             }
         }catch (Exception e){
             System.out.println(e.toString());
