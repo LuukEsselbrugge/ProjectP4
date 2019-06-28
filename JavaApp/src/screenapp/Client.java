@@ -49,7 +49,7 @@ public class Client {
             int id = results.size();
             results.add(String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", R) + String.format("%03d", G) + String.format("%03d", B));
 
-            System.out.println(String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", R) + String.format("%03d", G) + String.format("%03d", B));
+            System.out.println("00" + String.format("%02d", results.size() - 1) + results.get(results.size() - 1));
 
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
 
@@ -57,10 +57,10 @@ public class Client {
 
             new Thread(() -> {
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(10000);
                     removeResult(id, row, col);
                 }catch (Exception e){
-
+                    System.out.println(e.toString());
                 }
             }).start();
 
@@ -80,10 +80,19 @@ public class Client {
 
     public void removeResult(int id, int row, int col){
         try {
-            results.remove(id);
+            int x = 0;
+            for(String result : results){
+                if(result.substring(0,2).equals(row+"") && result.substring(2,4).equals(col+"")){
+                    results.remove(x);
+                }
+                x++;
+            }
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             //out.println("01" + id);
-            out.println("00" + String.format("%02d", id - 1) + String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", 0) + String.format("%03d", 0) + String.format("%03d", 0));
+            int id2 = id;
+            String tmp = "00" + String.format("%02d", id2) + String.format("%02d", row) + String.format("%02d", col) + String.format("%03d", 0) + String.format("%03d", 0) + String.format("%03d", 0);
+            out.println(tmp);
+            System.out.println(tmp);
 
             BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String respond = br.readLine();
